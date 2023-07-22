@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://cdn.icon-icons.com/icons2/1195/PNG/512/1490889698-amazon_82521.png" type="image/x-icon">
+  <title>Amazon Shopping</title>
+  <style>
+
+    *, *:before, *:after {
+      box-sizing: border-box;
+  }
+    
+  .slide1{
+    margin-block-start:50px;
+  }
+  .navbar-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cards-wrapper{
+  display:flex;
+  margin:10px 20px 10px 20px;
+  padding:10px 10px 10px 20px;
+  height:80vh;
+  
+  }
+  .carousel-item  img{
+    padding:10px 10px 10px 10px;
+    margin: 0%;
+    background-size:cover;
+  
+  }
+  .cards{
+    margin: 0.5em;
+    width: calc(100%/3);  
+  }
+  .card-body img{
+    height:15vh;
+    width:50vh;
+  
+  }
+   .image-wrapper{
+    height:40vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+   .image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+   
+  }  
+  .card{
+    margin:0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22,26, 0.18);
+    border:none;
+    border-radius: 0;
+  
+  }
+  .carousel-inner{
+    padding: 1em;
+  }
+  a.btn-primary
+  {
+    background: transparent;
+    color: orange;
+    border:transparent
+  }
+  h5.card-title{
+    font-family: 'Segoe UI';
+    font-style:bolder ;
+    color: rgb(47, 164, 213);
+  }
+  .col-6 >h5{
+    color:orange;
+  }
+  .form>h5{
+    color: aliceblue; 
+    font-weight: bolder;
+  }
+  
+  @media (min-width: 768px) {
+    .card img{
+      height: 35em;
+    }
+    .card-body{
+        min-height:300px;
+    }
+  }
+  
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary  fixed-top" >
+    <div class="container-fluid ">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"> <img  src="https://img.favpng.com/9/22/14/logo-amazon-com-transparency-vector-graphics-image-png-favpng-VhvZeHiLBUkXF2Z914ZbBFMuQ.jpg" height="30px" width="70px" ></a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ">Orders& Returns</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ">Best Sellers</a>
+         </li>
+        <li>
+            <div class="btn-group dropend nav-item " data-bs-theme="dark">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent;">
+                <span style="color: orange;">  <i class="fa-solid fa-user"></i>  My Account  </span> 
+              </button>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="#" style="color: orange;"> My Details</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " style="color: orange;">Refunds</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " style="color: orange;">Address</a>
+               </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+            <img class="mb-1 me-1 " src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/255px-Flag_of_India.svg.png" alt="..." height="15px" width="15px"> India
+          </a>
+        </li>
+        <li>
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">English</a>
+      </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit"> <i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div id="myCarousel" class="carousel slide mb-6 pointer-event slide1" data-bs-ride="carousel" data-bs-theme="light">
+    <div class="carousel-indicators container-fluid">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="img-fluid" src="https://gpcdn.ams3.cdn.digitaloceanspaces.com/promotions/amazon-fashion-sale-2019.png"
+                            height="100vh" width="100%;" class="d-block w-100" alt="..." >
+        
+      </div>
+      <div class="carousel-item ">
+        <img class="img-fluid" src="https://images-eu.ssl-images-amazon.com/images/G/31/img20/AmazonBrands/Space/More/XCM_Manual_1328782_1688665_IN_in_in_pb_nongw_catingresrs_home_kitappliances_banner_in_en_R2_3846031_1242x450_en_IN.jpg"
+                            height="100vh" width="100%" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img class="img-fluid" src="https://commerceiq.ai/wp-content/uploads/2021/06/Is-Prime-Day-turning-into-Prime-Week-or-Prime-Month.png"
+                            height="100vh"  width="100%" class="d-block w-100" alt="..." >
+      </div>
+      </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"  height="10vh "></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true" height="10vh" ></span>
+    </button>
+  </div>
+  <hr data-display-at="smws" data-order-sm="1" data-order-ws="1" class="card-flow-row-break">
+
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+    <div class="container-fluid">
+     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+      </button>
+            <div class=" navbar-collapse justify-content-md-center collapse" id="navbarsExample08">
+        <ul class="navbar-nav" >
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#"> <i class="fa-solid fa-mobile-screen-button"></i> Mobiles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-solid fa-shirt"></i>Fashion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link "><i class="fa-solid fa-tv"></i> Electronics</a>
+          </li>
+            <li class="nav-item">
+              <a class="nav-link "  href="#"> <i class="fa-solid fa-couch"></i>Furniture</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa-solid fa-syringe"></i> Pharmacy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link "><i class="fa-solid fa-book-open"></i> Books</a>
+          </li>
+          <li class="nav-item dropdown" data-bs-theme="dark">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-gift"></i> <i class="fa-solid fa-gifts"></i>Gifiting</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" style="color: teal;"></a>For Children</li>
+              <li><a class="dropdown-item" href="#" style="color: teal;">For Parents</a></li>
+              <li><a class="dropdown-item " href="#"  style="color: teal;">For Love</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="container col-xl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="https://m.media-amazon.com/images/I/718p4Q8QeeL._AC_UF1000,1000_QL80_.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="750" height="600" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h2 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Great Deals on Dell Laptops</h2>
+        <p class="lead">Dell Newest Inspiron 7620 2-in-1 Laptop, 16" FHD+ Touch Display, 12th Gen Intel Core i7-1260P, 32GB DDR4 RAM, 1TB.. for more info<a href="https://a.co/d/ecARd8U"></a> </p>
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Buy now</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">View More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+
+  <div class="mb-8">
+    <h3 class="mb-0">Shop by Category</h3>
+  </div>
+  <hr data-display-at="smws" data-order-sm="1" data-order-ws="1" class="card-flow-row-break">
+
+  <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-4 g-6 ">
+    <div class="col"> <a href="#" class="text-decoration-none text-inherit">
+        <div class="card card-product ">
+          <div class="card-body text-center py-8">
+            <img   class="img-fluid" src="https://m.media-amazon.com/images/G/31/img23/Fashion/Event/JuneWRS/eventpage/MFA/4._SY750_QL85_FMpng_.png" alt="Ecommerce Template" class="mb-3">
+              <div class="text-truncate">Men's clothing</div>
+          </div>
+        </div>
+      </a>
+    </div>
+    
+    <div class="col"> <a href="#" class="text-decoration-none text-inherit">
+        <div class="card card-product">
+          <div class="card-body text-center py-8">
+              <img  class="img-fluid"  src="https://assets.ajio.com/cms/AJIO/MOBILE/01072023-UHP-M-TopBrands-avaasagulmohar-min60.jpg" alt=" Ecommerce Template" class="mb-3">            <div class="text-truncate"> Women's clothing</div>
+          </div>
+        </div>
+      </a></div>
+    
+    <div class="col"> <a href="#" class="text-decoration-none text-inherit">
+        <div class="card card-product">
+          <div class="card-body text-center py-8">
+              <img  class="img-fluid" src="https://m.media-amazon.com/images/G/31/img21/shoes/2023/Herotaters/AF/7_hush_formal_770x630._SX414_QL85_.jpg" alt="Ecommerce Template" class="mb-3">
+            <div class="text-truncate"> Footwear</div>
+          </div>
+        </div>
+      </a></div>
+    
+      <div class="col"> <a href="#" class="text-decoration-none text-inherit">
+          <div class="card card-product">
+          <div class="card-body text-center py-8">
+            <img  class="img-fluid" src= "https://images-eu.ssl-images-amazon.com/images/G/31/img19/Baby/Oct2021/Diapers_440x460_2.jpg" alt="Ecommerce Template" class="mb-3">
+            <div class="text-truncate">Baby Care</div>
+          </div>
+        </div>
+      </a></div>
+       
+    <div class="col"> <a href="#" class="text-decoration-none text-inherit">
+          <div class="card card-product">
+          <div class="card-body text-center py-8">
+           
+            <img  class="img-fluid" src="https://static.toiimg.com/thumb/msid-81304997,width-400,resizemode-4/81304997.jpg" alt="Ecommerce Template" class="mb-3">
+            
+            <div class="text-truncate">Mobiles &amp;Laptops </div>
+          </div>
+        </div>
+      </a></div>
+  
+    <div class="col"> <a href="#" class="text-decoration-none text-inherit">
+        <div class="card card-product">
+          <div class="card-body text-center py-8">
+            <img  class="img-fluid" src="https://i0.wp.com/www.johnpatrick.com/wp-content/uploads/2021/03/Amazon-Pharmacy.png?fit=474%2C513&ssl=1" alt="Ecommerce Template" class="mb-3">
+            <div class="text-truncate"> Pharmacy</div>
+          </div>
+        </div>
+      </a></div>
+       
+      <div class="col"> <a href="#" class="text-decoration-none text-inherit">
+        <div class="card card-product">
+          <div class="card-body text-center py-8">
+              <img  class="img-fluid"  src="https://2.wlimg.com/product_images/bc-full/2022/7/10514719/kids-ethnic-wear-1657863778-6446398.jpeg" alt=" Ecommerce Template" class="mb-3">
+            
+            <div class="text-truncate">Kids Ethnic Wear</div>
+          </div>
+        </div>
+      </a></div>
+  
+
+    <div class="col"> <a href="#" class="text-decoration-none text-inherit">
+          <div class="card card-product">
+          <div class="card-body text-center py-8">
+              <img  class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcP2zTW7qY2Se8KLL8OEuwQEetsd72KIvGoaBZHvwfj3723_vpkZ9GpFHIn8x0P_lhHUM&usqp=CAU" alt=" Ecommerce Template" class="mb-3">
+                <div class="text-truncate">Furniture</div>
+          </div>
+        </div>
+      </a></div>
+  </div>
+  <hr data-display-at="smws" data-order-sm="1" data-order-ws="1" class="card-flow-row-break">
+  
+
+  <div>
+    <h3> Men's wear | Top Deals</h3>
+    <hr>
+    <div id="carouselExampleIndicators" class="carousel  carousel-dark slide d-none d-sm-block" data-bs-theme="dark">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner slide2">
+        <div class="carousel-item ">
+          <div class="cards-wrapper "> 
+
+            <div class="card d-block d-md-block " >
+              <div class="image-wrapper"><img src="https://www.beyoung.in/api/cache/catalog/products/new_shirt_upload_21_10_2022/deep_olive_green_corduroy_shirt_for_men_base_3_11_2022_400x533.jpg"  alt="..."></div>
+              <div class="card-body ">
+                <div class="card-actions">
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                      <i class="fa-solid fa-eye"></i>
+                    </button>
+                  </span>
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                  </span>
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                      <i class="fa-regular fa-heart"></i>
+                    </button>
+                  </span>
+                </div>
+
+                <h5 class="card-title text-center">Us Polo Shirt</h5>
+                <p class="card-text"> Buy Us Polo Green shirt with white square buttons </p>
+                <a href="#" class="btn btn-primary">Buy</a>
+              </div>
+            </div>
+            <div class="card d-block d-md-block ">
+              <div class="image-wrapper "><img src="https://i.etsystatic.com/36759076/r/il/b8ee3d/4302259143/il_fullxfull.4302259143_3r0m.jpg"  alt="..."></div>
+              <div class="card-body">
+                <div class="card-actions">
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                      <i class="fa-solid fa-eye"></i>
+                    </button>
+                  </span>
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                  </span>
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                      <i class="fa-regular fa-heart"></i>
+                    </button>
+                  </span>
+                </div>
+
+                <h5 class="card-title text-center">H&m Wide Jeans </h5>
+                <p class="card-text ">Buy H&M wide black Jeans with smooth comfort</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+              </div>
+
+            </div><div class="card d-block d-md-block " >
+              <div class="image-wrapper"> <img src="https://d1flfk77wl2xk4.cloudfront.net/Assets/93/787/XXL_p0183778793.jpg"  alt="..."></div>
+              <div class="card-body">
+                <div class="card-actions">
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                      <i class="fa-solid fa-eye"></i>
+                    </button>
+                  </span>
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                  </span>
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                      <i class="fa-regular fa-heart"></i>
+                    </button>
+                  </span>
+                </div>
+
+                <h5 class="card-title text-center">Arvind Formalpants</h5>
+                <p class="card-text"> Buy formal stripped pants from Arvind</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="cards-wrapper">
+
+            <div class="card d-block d-md-block " >
+              <div class="image-wrapper"><img src="https://images.meesho.com/images/products/119544768/7pyu4_512.jpg"  alt="..."></div>
+              <div class="card-actions">
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </span>
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </button>
+                </span>
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+                </span>
+              </div> 
+
+              <div class="card-body">
+                <h5 class="card-title text-center">Bata Sneakers</h5>
+                <p class="card-text">Buy Bata's White Sneakers with extra comfort</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+              </div>
+            </div>
+            <div class="card d-block d-md-block " >
+              <div class="image-wrapper">
+                <img src="https://assets.ajio.com/medias/sys_master/root/20220927/FGOj/633320e8aeb269dbb3aab4f6/-288Wx360H-469163749-beige-MODEL.jpg" alt="..."></div>
+              <div class="card-body">
+                <div class="card-actions">
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                      <i class="fa-solid fa-eye"></i>
+                    </button>
+                  </span>
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                  </span>
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                      <i class="fa-regular fa-heart"></i>
+                    </button>
+                  </span>
+                </div>
+                
+                <h5 class="card-title text-center">Nike Boots</h5>
+                <p class="card-text">Buy Nike Semi Brown Shoes With black Strips.</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+              </div>
+            </div>
+            <div class="card d-block d-md-block " >
+              <div class="image-wrapper"> <img src=" https://assets.ajio.com/medias/sys_master/root/20230602/nXUL/6479801dd55b7d0c633fee1e/-1117Wx1400H-462329051-gold-MODEL.jpg"  alt="..."></div>
+              <div class="card-actions">
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </span>
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </button>
+                </span>
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+                </span>
+              </div>
+              
+              <div class="card-body ">
+                <h5 class="card-title text-center">Rebook Sunglasses</h5>
+                <p class="card-text">Buy new Rebook black Rounded Sunglasses</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="carousel-item active">
+          <div class="cards-wrapper">
+
+            <div class="card d-block d-md-block " >
+              <div class="image-wrapper"> <img src="https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/23161632/2023/5/13/8ec71db7-edee-4a02-8608-8a47eacb66cb1683951943027Sherwani1.jpg"  alt="..."></div>
+              <div class="card-actions">
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </span>
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </button>
+                </span>
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+                </span>
+              </div>
+              
+              <div class="card-body">
+                <h5 class="card-title text-center">Anoks Sherwani</h5>
+                <p class="card-text">Buy Anoks Black Sherwani with Gold-finished Duppata</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+              </div>
+            </div>
+            <div class="card d-block d-md-block " >
+              <div class="image-wrapper"> <img src="https://www.jockey.in/menspremiuminnerwear/images/boxer-brief-banner-2022-mobile.jpg"  alt="..."></div>
+              <div class="card-actions">
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </span>
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </button>
+                </span>
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+                </span>
+              </div>
+              
+              <div class="card-body">
+                <h5 class="card-title text-center">Jockey Brief</h5>
+                <p class="card-text">Buy Jocket Men's Super Cotten Brief Ribed grey Colour</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+              </div>
+            </div>
+            <div class="card d-block d-md-block " >
+              <div class="image-wrapper">  <img src="https://m.media-amazon.com/images/I/71fnVt1kSWL._AC_UY1100_.jpg" alt="..."></div>
+              <div class="card-actions">
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </span>
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </button>
+                </span>
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+                </span>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title text-center">Lee ShortPants</h5>
+                <p class="card-text ">Buy Lee Men;s super Combed Regular Boxer Shorts</p>
+                <a href="#" class="btn btn-primary" >Buy</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev d-none d-sm-block" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next d-none d-sm-block" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+     
+    <div id="carouselExampleSmallScreen" class="carousel slide d-sm-none" >
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="card  d-sm-none " >
+            <div class="image-wrapper"><img src="https://www.beyoung.in/api/cache/catalog/products/new_shirt_upload_21_10_2022/deep_olive_green_corduroy_shirt_for_men_base_3_11_2022_400x533.jpg"  alt="..."></div>
+            <div class="card-body ">
+              <div class="card-actions">
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </span>
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </button>
+                </span>
+                <span class="card-action">
+                  <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+                </span>
+              </div>
+
+              <h5 class="card-title text-center">Us Polo Shirt</h5>
+              <p class="card-text"> Buy Us Polo Green shirt with white square buttons </p>
+              <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+        <div class="card d-sm-none" >
+          <div class="image-wrapper"> <img src=" https://assets.ajio.com/medias/sys_master/root/20230602/nXUL/6479801dd55b7d0c633fee1e/-1117Wx1400H-462329051-gold-MODEL.jpg"  alt="..."></div>
+          <div class="card-actions">
+            <span class="card-action">
+              <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </span>
+            <span class="card-action">
+              <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </span>
+            <span class="card-action">
+              <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </span>
+          </div>
+           <div class="card-body ">
+            <h5 class="card-title text-center">Rebook Sunglasses</h5>
+            <p class="card-text">Buy new Rebook black Rounded Sunglasses</p>
+            <a href="#" class="btn btn-primary">Buy</a>
+          </div>
+        </div>
+      </div>
+
+        
+
+        <div class="carousel-item">
+          <div class="card d-sm-none ">
+            <div class="image-wrapper"> 
+          <img src="https://assets.ajio.com/medias/sys_master/root/20220927/FGOj/633320e8aeb269dbb3aab4f6/-288Wx360H-469163749-beige-MODEL.jpg" alt="..."></div>
+              <div class="card-body">
+                <div class="card-actions">
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                      <i class="fa-solid fa-eye"></i>
+                    </button>
+                  </span>
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                  </span>
+                  <span class="card-action">
+                    <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+                      <i class="fa-regular fa-heart"></i>
+                    </button>
+                  </span>
+                </div>
+                    <h5 class="card-title text-center">Nike Boots</h5>
+                <p class="card-text">Buy Nike Semi Brown Shoes With black Strips.</p>
+                <a href="#" class="btn btn-primary">Buy</a>
+              </div>
+            </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSmallScreen" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSmallScreen" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <hr data-display-at="smws" data-order-sm="1" data-order-ws="1" class="card-flow-row-break">
+
+  
+  <div class="container bg-body-tertiary" style="background-color:rgb(64, 64, 66);" data-bs-theme="dark">
+    <footer class="py-5" >
+      <div class="row">
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Amazon Science</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Connect With Us</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"> <i class="fa-brands fa-facebook"></i>  FaceBook</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"> <i class="fa-brands fa-twitter"></i>  Twitter</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary"> <i class="fa-brands fa-instagram"></i>  Instagram</a></li>
+            </ul>
+        </div>
+  
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Let us Help You</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">COVID-19 and Amazon</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Your Account</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Returns Centre</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Amazon app</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Help</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-md-5 offset-md-1 mb-3">
+          <form style="color: aliceblue;">
+            <h5>Sign for Better Experience</h5>
+            <p> After sign in your account you enhance a better options.  </p>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+              <button class="btn btn-primary" type="button">Sign In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <p span style="color: orange;">© 1996-2023 Amazon.com, Inc. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <footer class="py-5 text-center text-body-secondary bg-body-tertiary bg-dark" data-bs-theme="dark">
+    <p>This Page built from <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/login">@bhargavsai</a>.</p>
+    <p class="mb-0">
+      <a href="#">Back to top</a>
+    </p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
